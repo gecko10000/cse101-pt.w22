@@ -21,7 +21,7 @@ done
 
 rm -f *.o FindComponents
 
-gcc -c -Wall -std=c11 -g FindComponents.c Graph.c List.c
+gcc -c -Wall -std=c17 -g FindComponents.c Graph.c List.c
 gcc -o FindComponents FindComponents.o Graph.o List.o
 
 

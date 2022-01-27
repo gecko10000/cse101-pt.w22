@@ -20,7 +20,7 @@ read verbose
 echo ""
 echo ""
 
-gcc -c -std=c11 -Wall -g ModelListTest.c List.c
+gcc -c -std=c17 -Wall -g ModelListTest.c List.c
 gcc -o ModelListTest ModelListTest.o List.o
 
 timeout 5 valgrind --leak-check=full -v ./ModelListTest -v > ListTest-out.txt 2> ListTest-mem.txt

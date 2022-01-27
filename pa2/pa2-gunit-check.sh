@@ -15,7 +15,7 @@ read verbose
 echo ""
 echo ""
 
-gcc -c -std=c11 -Wall -g ModelGraphTest.c Graph.c List.c
+gcc -c -std=c17 -Wall -g ModelGraphTest.c Graph.c List.c
 gcc -o ModelGraphTest ModelGraphTest.o Graph.o List.o
 
 timeout 6 valgrind --leak-check=full -v ./ModelGraphTest -v > GraphTest-out.txt 2> MemoryCheck.txt

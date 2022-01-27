@@ -20,7 +20,7 @@ echo ""
 echo "Press Enter To Continue with ListTest Results"
 read verbose
 
-gcc -c -std=c11 -Wall -g ModelListTest.c List.c
+gcc -c -std=c17 -Wall -g ModelListTest.c List.c
 gcc -o ModelListTest ModelListTest.o List.o
 
 timeout 6 ./ModelListTest -v > ListTest-out.txt

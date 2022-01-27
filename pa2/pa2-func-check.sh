@@ -21,7 +21,7 @@ done
 
 rm -f *.o FindPath
 
-gcc -c -Wall -std=c11 -g FindPath.c Graph.c List.c
+gcc -c -Wall -std=c17 -g FindPath.c Graph.c List.c
 gcc -o FindPath FindPath.o Graph.o List.o
 
 

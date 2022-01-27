@@ -20,7 +20,7 @@ done
 echo ""
 echo ""
 
-gcc -c -std=c11 -Wall -g Lex.c List.c
+gcc -c -std=c17 -Wall -g Lex.c List.c
 gcc -o Lex Lex.o List.o
 
 lextestspassed=$(expr 0)
