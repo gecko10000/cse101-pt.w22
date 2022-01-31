@@ -22,7 +22,7 @@ read verbose
 echo ""
 echo ""
 
-gcc -c -std=c11 -Wall -g ModelMatrixTest.c Matrix.c List.c
+gcc -c -std=c17 -Wall -g ModelMatrixTest.c Matrix.c List.c
 gcc -o ModelMatrixTest ModelMatrixTest.o Matrix.o List.o
 
 timeout $TIME valgrind --leak-check=full -v ./ModelMatrixTest -v > MatrixTest-out.txt 2> MatrixTest-mem.txt
