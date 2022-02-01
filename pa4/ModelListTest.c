@@ -125,9 +125,8 @@ int *newData(int data) {
   return N;
 }
 
-uint8_t runTest(List *pA, List *pB, int test) {
+uint8_t runTest(List *pA, int test) {
   List A = *pA;
-  List B = *pB;
 
   switch (test) {
   case Empty_length: {
@@ -523,10 +522,8 @@ int main(int argc, char **argv) {
   // signal(SIGABRT, abrupt_termination_handler);
   for (uint8_t i = FIRST_TEST; i < NUM_TESTS; i++) {
     List A = newList();
-    List B = newList();
-    testStatus = runTest(&A, &B, i);
+    testStatus = runTest(&A, i);
     freeList(&A);
-    freeList(&B);
     uint8_t fail_type = setjmp(test_crash);
     if (argc == 2) { // it's verbose mode
       printf("Test %s: %s", testName(i),
