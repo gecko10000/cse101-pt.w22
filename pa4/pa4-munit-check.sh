@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 TIME=8
-
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 SRCDIR=https://raw.githubusercontent.com/agavgavi/cse101-pt.w22/master/pa4
 
 if [ ! -e backup ]; then
@@ -30,7 +31,7 @@ t=$?
 cat MatrixTest-mem.txt
 cat MatrixTest-out.txt
 if [ $t -eq 124 ]; then
-  echo "MATRIX MODEL TEST TIMED OUT"
+  echo -e "${RED} MATRIX MODEL TEST TIMED OUT ${NC}"
 fi
 
 rm -f *.o ModelMatrixTest* garbage MatrixTest-mem.txt MatrixTest-out.txt

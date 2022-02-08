@@ -5,7 +5,8 @@ NUMTESTS=5
 PNTSPERTEST=2
 let MAXPTS=$NUMTESTS*$PNTSPERTEST
 TIME=5
-
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 if [ ! -e backup ]; then
   mkdir backup
 fi
@@ -41,7 +42,7 @@ for NUM in $(seq 1 $NUMTESTS); do
   fi
   timeout $RUNTIME ./Sparse infile$NUM.txt outfile$NUM.txt &> garbage >> garbage #all stdout/stderr thrown away
   if [ $? -eq 124 ]; then
-    echo "Sparse Test timed out!!!"
+    echo -e "${RED} SPARSE TEST TIMED OUT ${NC}"
   fi
   diff -bBwu outfile$NUM.txt model-outfile$NUM.txt > diff$NUM.txt &>> diff$NUM.txt
   echo "Sparse Test $NUM:"
