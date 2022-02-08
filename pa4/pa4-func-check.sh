@@ -40,6 +40,9 @@ for NUM in $(seq 1 $NUMTESTS); do
     let RUNTIME=3*$TIME
   fi
   timeout $RUNTIME ./Sparse infile$NUM.txt outfile$NUM.txt &> garbage >> garbage #all stdout/stderr thrown away
+  if [ $? -eq 124 ]; then
+    echo "Sparse Test timed out!!!"
+  fi
   diff -bBwu outfile$NUM.txt model-outfile$NUM.txt > diff$NUM.txt &>> diff$NUM.txt
   echo "Sparse Test $NUM:"
   echo "=========="

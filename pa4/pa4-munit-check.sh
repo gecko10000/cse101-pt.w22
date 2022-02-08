@@ -26,9 +26,12 @@ gcc -c -std=c17 -Wall -g ModelMatrixTest.c Matrix.c List.c
 gcc -o ModelMatrixTest ModelMatrixTest.o Matrix.o List.o
 
 timeout $TIME valgrind --leak-check=full -v ./ModelMatrixTest -v > MatrixTest-out.txt 2> MatrixTest-mem.txt
-
+t=$?
 cat MatrixTest-mem.txt
 cat MatrixTest-out.txt
+if [ $t -eq 124 ]; then
+  echo "MATRIX MODEL TEST TIMED OUT"
+fi
 
 rm -f *.o ModelMatrixTest* garbage MatrixTest-mem.txt MatrixTest-out.txt
 
