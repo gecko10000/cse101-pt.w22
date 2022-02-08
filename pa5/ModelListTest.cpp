@@ -153,7 +153,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
   List B = *pB;
   switch (test) {
   case Empty_size: {
-    if (A.size() != 0)
+    if (A.length() != 0)
       return 1;
     return 0;
   }
@@ -163,7 +163,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
     A.insertAfter(3);
     A.insertAfter(5);
     A.insertAfter(12);
-    if (A.size() != 5)
+    if (A.length() != 5)
       return 1;
     return 0;
   }
@@ -173,7 +173,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
     A.insertBefore(3);
     A.insertBefore(5);
     A.insertBefore(12);
-    if (A.size() != 5)
+    if (A.length() != 5)
       return 1;
     return 0;
   }
@@ -186,12 +186,12 @@ uint8_t runTest(List *pA, List *pB, int test) {
 
     A.movePrev();
     A.eraseAfter();
-    if (A.size() != 4)
+    if (A.length() != 4)
       return 1;
 
     A.findPrev(2);
     A.eraseAfter();
-    if (A.size() != 3)
+    if (A.length() != 3)
       return 2;
 
     return 0;
@@ -205,12 +205,12 @@ uint8_t runTest(List *pA, List *pB, int test) {
 
     A.moveNext();
     A.eraseBefore();
-    if (A.size() != 4)
+    if (A.length() != 4)
       return 1;
 
     A.findNext(2);
     A.eraseBefore();
-    if (A.size() != 3)
+    if (A.length() != 3)
       return 2;
 
     return 0;
@@ -225,7 +225,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
     B.insertAfter(6);
 
     C = A.concat(B);
-    if (C.size() != 6)
+    if (C.length() != 6)
       return 1;
     return 0;
   }
@@ -237,7 +237,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
     A.insertAfter(2);
     A.insertAfter(1);
     A.cleanup();
-    if (A.size() != 3)
+    if (A.length() != 3)
       return 1;
     return 0;
   }
@@ -643,7 +643,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
   }
   case Empty_clear: {
     A.clear();
-    if (A.size() != 0 || A.position() != 0)
+    if (A.length() != 0 || A.position() != 0)
       return 1;
     return 0;
   }
@@ -654,7 +654,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
     A.insertBefore(5);
     A.insertBefore(12);
     A.clear();
-    if (A.size() != 0 || A.position() != 0)
+    if (A.length() != 0 || A.position() != 0)
       return 1;
     return 0;
   }
@@ -752,7 +752,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
     A.insertAfter(34);
     if (A.findNext(99) != -1)
       return 1;
-    if (A.position() != A.size())
+    if (A.position() != A.length())
       return 2;
 
     A.moveFront();
