@@ -506,7 +506,6 @@ uint8_t runTest(List *pA, List *pB, int test) {
     return 0;
   }
   case Concat_position: {
-    List C;
     A.insertBefore(1);
     A.insertBefore(2);
     A.insertBefore(3);
@@ -514,8 +513,7 @@ uint8_t runTest(List *pA, List *pB, int test) {
     B.insertBefore(5);
     B.insertBefore(6);
 
-    C = A.concat(B);
-    if (C.position() != 0)
+    if (A.concat(B).position() != 0)
       return 1;
     return 0;
   }
