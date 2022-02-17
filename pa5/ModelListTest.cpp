@@ -840,16 +840,26 @@ int main(int argc, char **argv) {
   // signal(SIGABRT, abrupt_termination_handler);
   for (uint8_t i = FIRST_TEST; i < NUM_TESTS; i++) {
     List A, B;
-    testStatus = runTest(&A, &B, i);
-    uint8_t fail_type = setjmp(test_crash);
+    uint8_t fail_type;
+    try {
+
+      testStatus = runTest(&A, &B, i);
+      fail_type = setjmp(test_crash);
+    } catch (...) {
+      testStatus = 255;
+      fail_type = 3;
+    }
     if (argc == 2) { // it's verbose mode
       cout << "Test " + testName(i) + ": "
            << (testStatus == 0 ? GREEN "PASSED" NC : RED "FAILED" NC);
       if (testStatus == 255) {
         cout << ": due to a " RED
-             << (fail_type == 1 ? "segfault"
-                                : (fail_type == 2 ? "program exit"
-                                                  : "program interruption"))
+             << (fail_type == 1
+                     ? "segfault"
+                     : (fail_type == 2
+                            ? "program exit"
+                            : (fail_type == 3 ? "exception being thrown"
+                                              : "program interruption")))
              << NC << endl;
         cout << "\nWARNING: Program will now stop running tests\n" << endl;
         break;
