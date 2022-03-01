@@ -364,7 +364,7 @@ uint8_t runTest(Dictionary *pA, Dictionary *pB, int test) {
     B.setValue("b", 5);
     B.setValue("a", 1);
 
-    if (!(A == B))
+    if ((A == B))
       return 4;
 
     return 0;
