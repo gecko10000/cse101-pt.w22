@@ -8,7 +8,7 @@ echo ""
 echo "press Enter for make tests"
 read garbage
 
-make
+make -j8
 
 if [ ! -e Order ] || [ ! -x Order ]; then # exist and executable
   echo ""
