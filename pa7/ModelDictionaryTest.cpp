@@ -12,7 +12,7 @@
 
 #define FIRST_TEST Empty_size
 #define MAXSCORE 54
-#define CHARITY 0
+#define CHARITY 10
 
 #define RED "\033[0;31m"
 #define CYAN "\033[0;36m"
