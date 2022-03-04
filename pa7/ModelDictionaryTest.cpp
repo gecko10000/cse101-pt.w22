@@ -44,7 +44,6 @@ enum Test_e {
   GetValue_value,
 
   Repeated_setValue,
-  Dictionary_equals,
   ToString_equals,
   PreString_equals,
   Contains_value,
@@ -84,8 +83,6 @@ string testName(int test) {
 
   if (test == Repeated_setValue)
     return "Repeated_setValue";
-  if (test == Dictionary_equals)
-    return "Dictionary_equals";
   if (test == ToString_equals)
     return "ToString_equals";
   if (test == PreString_equals)
@@ -330,45 +327,6 @@ uint8_t runTest(Dictionary *pA, Dictionary *pB, int test) {
 
     return 0;
   }
-  case Dictionary_equals: {
-    A.clear();
-    B.clear();
-    if (!(A == B))
-      return 1;
-
-    A.setValue("a", 1);
-    A.setValue("b", 5);
-    A.setValue("e", 10);
-    A.setValue("h", 15);
-    A.setValue("f", 20);
-    A.setValue("i", 100);
-
-    if ((A == B))
-      return 2;
-
-    B.setValue("a", 1);
-    B.setValue("b", 5);
-    B.setValue("e", 10);
-    B.setValue("h", 15);
-    B.setValue("f", 20);
-    B.setValue("i", 100);
-
-    if (!(A == B))
-      return 3;
-
-    B.clear();
-    B.setValue("i", 100);
-    B.setValue("f", 20);
-    B.setValue("h", 15);
-    B.setValue("e", 10);
-    B.setValue("b", 5);
-    B.setValue("a", 1);
-
-    if ((A == B))
-      return 4;
-
-    return 0;
-  }
   case ToString_equals: {
     std::string ideal = "a : 1\nb : 5\ne : 10\nf : 20\nh : 15\ni : 100\n";
     A.setValue("a", 1);
@@ -441,6 +399,7 @@ int main(int argc, char **argv) {
 
   testsPassed = 0;
   disable_exit_handler = 0;
+  int gotStrings = 0;
   atexit(exit_attempt_handler);
   signal(SIGSEGV, segfault_handler);
   // signal(SIGTERM, abrupt_termination_handler); // dangerous
@@ -480,12 +439,16 @@ int main(int argc, char **argv) {
     }
     if (testStatus == 0) {
       testsPassed++;
+      if (i == ToString_equals || i == PreString_equals) {
+        gotStrings++;
+      }
     }
   }
 
   disable_exit_handler = 1;
 
-  uint8_t totalScore = testsPassed * 3;
+  uint8_t totalScore = (testsPassed + gotStrings) * 3;
+  totalScore = totalScore <= MAXSCORE ? totalScore : MAXSCORE;
 
   if (argc == 2 && testStatus != 255)
     cout << "\nYou passed " << unsigned(testsPassed) << " out of " << NUM_TESTS
