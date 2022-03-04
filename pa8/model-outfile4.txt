@@ -1,0 +1,54 @@
+ : 31
+   infile.write(line) : 30
+# : 12
+#            diff blah english3.txt   : 11
+#            python3 RandomInput5.py  : 7
+#  Creates a random input file for CSE 101 pa5 by randomizing the lines in  : 3
+#  RandomInput5.py : 2
+#  file english3.txt, which contains 194,434 different words in alphabetical : 4
+#  order. To run this program, do  : 5
+#  ouput from diff indicates there was no difference in the files.      : 14
+#  then test your program by doing : 9
+#  where blah was the name of the input file created by this program. No : 13
+# close files    : 32
+# get file names and open files : 18
+# read lines of this file into a list and randomize the list : 24
+# to mix-up some other file put its name in place of 'english3.txt' : 21
+# write mixed lines to new file : 28
+#------------------------------------------------------------------------------ : 15
+L = thisfile.readlines() : 25
+for line in L: : 29
+from random import shuffle : 16
+infile = open(input('Enter name of file to create: '),'w') : 19
+infile.close() : 33
+shuffle(L) : 26
+thisfile = open('english3.txt','r')   : 22
+thisfile.close() : 34
+
+#  where blah was the name of the input file created by this program. No
+#  RandomInput5.py
+#            python3 RandomInput5.py 
+#
+
+   infile.write(line)
+#            diff blah english3.txt  
+#  Creates a random input file for CSE 101 pa5 by randomizing the lines in 
+#  order. To run this program, do 
+#  file english3.txt, which contains 194,434 different words in alphabetical
+#  then test your program by doing
+#  ouput from diff indicates there was no difference in the files.     
+#------------------------------------------------------------------------------
+# read lines of this file into a list and randomize the list
+# get file names and open files
+# close files   
+# to mix-up some other file put its name in place of 'english3.txt'
+# write mixed lines to new file
+infile = open(input('Enter name of file to create: '),'w')
+for line in L:
+L = thisfile.readlines()
+from random import shuffle
+shuffle(L)
+infile.close()
+thisfile = open('english3.txt','r')  
+thisfile.close()
+

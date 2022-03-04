@@ -1,0 +1,28 @@
+=== : 13
+==== : 1
+===== : 9
+every line as a single string : 12
+have to do is treat : 11
+in accordance with : 6
+may appear in tests : 3
+out in the PDF : 8
+seriously all you : 10
+so you better : 4
+sometimes tokens : 2
+the instructions set : 7
+write your program : 5
+
+may appear in tests
+=====
+====
+===
+have to do is treat
+every line as a single string
+in accordance with
+sometimes tokens
+seriously all you
+out in the PDF
+so you better
+write your program
+the instructions set
+

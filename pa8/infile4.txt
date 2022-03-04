@@ -1,0 +1,34 @@
+#------------------------------------------------------------------------------
+#  RandomInput5.py
+#  Creates a random input file for CSE 101 pa5 by randomizing the lines in 
+#  file english3.txt, which contains 194,434 different words in alphabetical
+#  order. To run this program, do 
+#
+#            python3 RandomInput5.py 
+#
+#  then test your program by doing
+#
+#            diff blah english3.txt  
+#
+#  where blah was the name of the input file created by this program. No
+#  ouput from diff indicates there was no difference in the files.     
+#------------------------------------------------------------------------------
+from random import shuffle
+
+# get file names and open files
+infile = open(input('Enter name of file to create: '),'w')
+
+# to mix-up some other file put its name in place of 'english3.txt'
+thisfile = open('english3.txt','r')  
+
+# read lines of this file into a list and randomize the list
+L = thisfile.readlines()
+shuffle(L)
+
+# write mixed lines to new file
+for line in L:
+   infile.write(line)
+
+# close files   
+infile.close()
+thisfile.close()
