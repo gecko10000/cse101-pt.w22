@@ -380,6 +380,7 @@ uint8_t runTest(Dictionary *pA, Dictionary *pB, int test) {
 
     if (A.to_string() == B.to_string())
       return 6;
+    return 0;
   }
 
   case ToString_equals: {
