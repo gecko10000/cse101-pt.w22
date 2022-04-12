@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-SRCDIR=https://raw.githubusercontent.com/agavgavi/cse101-pt.w22/master/pa3
+SRCDIR=https://raw.githubusercontent.com/gecko10000/cse101-pt.w22/main/pa3
 NUMTESTS=7
 PNTSPERTEST=3
 let MAXPTS=$NUMTESTS*$PNTSPERTEST

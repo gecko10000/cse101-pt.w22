@@ -3,7 +3,7 @@
 # usage: pa5.sh
 # (run within your pa5 directory to test your code)
 
-SRCDIR=https://raw.githubusercontent.com/agavgavi/cse101-pt.w22/master/pa5
+SRCDIR=https://raw.githubusercontent.com/gecko10000/cse101-pt.w22/main/pa5
 
 EXE_ALL=( pa5-func-check.sh pa5-unit-check.sh pa5-make-check.sh )
 EXE_RANGE=$((${#EXE_ALL[*]} - 1))

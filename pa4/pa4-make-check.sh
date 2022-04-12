@@ -2,7 +2,7 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
-SRCDIR=https://raw.githubusercontent.com/agavgavi/cse101-pt.w22/master/pa4
+SRCDIR=https://raw.githubusercontent.com/gecko10000/cse101-pt.w22/main/pa4
 
 if [ ! -e backup ]; then
   mkdir backup

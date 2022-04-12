@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-SRCDIR=https://raw.githubusercontent.com/agavgavi/cse101-pt.w22/master/pa5
+SRCDIR=https://raw.githubusercontent.com/gecko10000/cse101-pt.w22/main/pa5
 NUMTESTS=3
 PNTSPERTEST=5
 INPUTS=( 10 50 100 )
