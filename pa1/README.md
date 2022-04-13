@@ -11,7 +11,7 @@ Run the following in your working directory (the directory you wrote your code
 in) to get the test script and example input files:
 
 ```bash
-curl https://raw.githubusercontent.com/agavgavi/cse101-pt.w22/master/pa1/pa1.sh > pa1.sh
+curl https://raw.githubusercontent.com/gecko10000/cse101-pt.w22/main/pa1/pa1.sh > pa1.sh
 chmod +x pa1.sh
 ```
 

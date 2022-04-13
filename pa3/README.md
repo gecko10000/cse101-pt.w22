@@ -12,7 +12,7 @@ Run the following in your working directory (the directory you wrote your code
 in) to get the test script and example input files:
 
 ```bash
-curl https://raw.githubusercontent.com/agavgavi/cse101-pt.w22/master/pa3/pa3.sh > pa3.sh
+curl https://raw.githubusercontent.com/gecko10000/cse101-pt.w22/main/pa3/pa3.sh > pa3.sh
 chmod +x pa3.sh
 ```
 
